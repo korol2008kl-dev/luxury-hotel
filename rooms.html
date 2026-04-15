@@ -1,0 +1,221 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Номера | Luxury Hotel</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  .filters-panel {
+    width: min(960px, 92%);
+    margin: 30px auto;
+    background: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: 14px;
+    padding: 18px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+    align-items: end;
+  }
+
+  .filters-panel label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #333;
+  }
+
+  .filters-panel input[type="text"] {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+
+  .range-wrap {
+    display: grid;
+    gap: 6px;
+  }
+
+  .range-value {
+    font-weight: 600;
+    font-size: 14px;
+    color: #1d1d1d;
+  }
+
+  .filters-panel button {
+    border: none;
+    border-radius: 10px;
+    background: #1d1d1d;
+    color: #fff;
+    padding: 10px 14px;
+    cursor: pointer;
+    height: 41px;
+  }
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">Luxury Hotel</div>
+
+  <nav>
+    <a href="index.html">Главная</a>
+    <a href="rooms.html">Номера</a>
+    <a href="services.html">Услуги</a>
+    <a href="contacts.html">Контакты</a>
+  </nav>
+</header>
+
+<!-- БАННЕР -->
+<section class="page-hero">
+  <div class="hero-content">
+    <h1>Наши номера</h1>
+    <p>Выберите идеальный вариант для отдыха</p>
+  </div>
+</section>
+
+<!-- ФИЛЬТРЫ -->
+<div class="filters-panel">
+  <div class="range-wrap">
+    <label for="maxPrice">Максимальная цена за ночь</label>
+    <input type="range" id="maxPrice" min="120" max="500" step="10" value="500">
+    <span id="maxPriceValue" class="range-value">$500</span>
+  </div>
+
+  <div class="range-wrap">
+    <label for="peopleCount">Количество людей</label>
+    <input type="range" id="peopleCount" min="1" max="6" step="1" value="1">
+    <span id="peopleCountValue" class="range-value">1 чел.</span>
+  </div>
+
+  <div>
+    <label for="nameSearch">Поиск по названию</label>
+    <input type="text" id="nameSearch" placeholder="Например, Люкс">
+  </div>
+
+  <div>
+    <button type="button" id="resetFilters">Сбросить фильтры</button>
+  </div>
+</div>
+
+<!-- НОМЕРА -->
+<section class="section">
+  <div class="rooms-grid">
+
+    <!-- НОМЕР 1 -->
+    <a href="room-standert.html" class="room-link">
+      <div class="room-card" data-price="120" data-type="standard" data-capacity="2">
+        <img src="https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg" alt="Стандартный номер">
+        <div class="room-card-info">
+          <h3>Стандарт</h3>
+          <p>Уютный номер для комфортного отдыха</p>
+          <span class="price">$120 / ночь</span>
+          <button onclick="location.href='booking.html'">Забронировать</button>
+        </div>
+      </div>
+    </a>
+
+    <!-- НОМЕР 2 -->
+    <a href="room-single.html" class="room-link">
+      <div class="room-card" data-price="250" data-type="luxury" data-capacity="2">
+        <img src="https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg" alt="Номер люкс">
+        <div class="room-card-info">
+          <h3>Люкс</h3>
+          <p>Просторный номер с панорамным видом</p>
+          <span class="price">$250 / ночь</span>
+          <button onclick="location.href='booking.html'">Забронировать</button>
+        </div>
+      </div>
+    </a>
+
+    <!-- НОМЕР 3 -->
+    <a href="room-prez.html" class="room-link">
+      <div class="room-card" data-price="500" data-type="presidential" data-capacity="4">
+        <img src="https://images.pexels.com/photos/189296/pexels-photo-189296.jpeg" alt="Президентский номер">
+        <div class="room-card-info">
+          <h3>Президентский</h3>
+          <p>Максимальный уровень роскоши</p>
+          <span class="price">$500 / ночь</span>
+          <button onclick="location.href='booking.html'">Забронировать</button>
+        </div>
+      </div>
+    </a>
+
+    <!-- НОМЕР 4 -->
+    <a href="room-sem.html" class="room-link">
+      <div class="room-card" data-price="180" data-type="family" data-capacity="5">
+        <img src="https://images.pexels.com/photos/271618/pexels-photo-271618.jpeg" alt="Семейный номер">
+        <div class="room-card-info">
+          <h3>Семейный</h3>
+          <p>Идеально для отдыха с семьей</p>
+          <span class="price">$180 / ночь</span>
+          <button onclick="location.href='booking.html'">Забронировать</button>
+        </div>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<footer>
+  © 2026 Luxury Hotel
+</footer>
+
+<!-- Filter JS -->
+<script>
+const maxPriceInput = document.getElementById('maxPrice');
+const peopleCountInput = document.getElementById('peopleCount');
+const nameSearchInput = document.getElementById('nameSearch');
+const maxPriceValue = document.getElementById('maxPriceValue');
+const peopleCountValue = document.getElementById('peopleCountValue');
+const resetFiltersBtn = document.getElementById('resetFilters');
+const allCards = document.querySelectorAll('.room-card');
+
+function applyFilters() {
+  const maxPrice = Number(maxPriceInput.value);
+  const peopleCount = Number(peopleCountInput.value);
+  const searchQuery = nameSearchInput.value.trim().toLowerCase();
+
+  maxPriceValue.textContent = `$${maxPrice}`;
+  peopleCountValue.textContent = `${peopleCount} чел.`;
+
+  allCards.forEach(card => {
+    const price = parseInt(card.dataset.price, 10);
+    const capacity = parseInt(card.dataset.capacity, 10);
+    const title = card.querySelector('h3').textContent.toLowerCase();
+    const priceMatch = price <= maxPrice;
+    const peopleMatch = capacity >= peopleCount;
+    const nameMatch = searchQuery === '' || title.includes(searchQuery);
+
+    if (priceMatch && peopleMatch && nameMatch) {
+      card.parentElement.style.display = 'block';
+    } else {
+      card.parentElement.style.display = 'none';
+    }
+  });
+}
+
+maxPriceInput.addEventListener('input', applyFilters);
+peopleCountInput.addEventListener('input', applyFilters);
+nameSearchInput.addEventListener('input', applyFilters);
+
+resetFiltersBtn.addEventListener('click', () => {
+  maxPriceInput.value = maxPriceInput.max;
+  peopleCountInput.value = 1;
+  nameSearchInput.value = '';
+  applyFilters();
+});
+
+applyFilters();
+</script>
+
+</body>
+</html>

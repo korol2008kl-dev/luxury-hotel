@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ресторан | Luxury Hotel</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  .filters-panel {
+    width: min(960px, 92%);
+    margin: 30px auto;
+    background: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: 14px;
+    padding: 18px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+    align-items: end;
+  }
+
+  .filters-panel label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #333;
+  }
+
+  .filters-panel input[type="text"] {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+
+  .range-wrap {
+    display: grid;
+    gap: 6px;
+  }
+
+  .range-value {
+    font-weight: 600;
+    font-size: 14px;
+    color: #1d1d1d;
+  }
+
+  .filters-panel button {
+    border: none;
+    border-radius: 10px;
+    background: #1d1d1d;
+    color: #fff;
+    padding: 10px 14px;
+    cursor: pointer;
+    height: 41px;
+  }
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">Luxury Hotel</div>
+
+  <nav>
+     <a href="index.html">Главная</a>
+     <a href="rooms.html">Номера</a>
+     <a href="services.html">Услуги</a>
+     <a href="contacts.html">Контакты</a>
+  </nav>
+</header>
+
+<section class="page-herores">
+  <div class="hero-content">
+    <h1>Ресторан</h1>
+    <p>Изысканная кухня и премиальный сервис</p>
+  </div>
+</section>
+
+<!-- 🔥 ФИЛЬТРЫ (как SPA стиль) -->
+<div class="filters-panel">
+
+  <div class="range-wrap">
+    <label for="maxPrice">Максимальная цена</label>
+    <input type="range" id="maxPrice" min="10000" max="100000" step="500" value="100000">
+    <span id="maxPriceValue" class="range-value">100000 ₸</span>
+  </div>
+
+  <div>
+    <label for="nameSearch">Поиск блюда</label>
+    <input type="text" id="nameSearch" placeholder="Например, стейк">
+  </div>
+
+  <div>
+    <button type="button" id="resetFilters">Сбросить</button>
+  </div>
+
+</div>
+
+<!-- МЕНЮ -->
+<section class="section">
+  <h2>Меню ресторана</h2>
+
+  <div class="menu-grid">
+
+    <div class="menu-card" data-price="100000">
+      <img src="https://images.pexels.com/photos/262959/pexels-photo-262959.jpeg">
+      <h3>Стейк из говядины</h3>
+      <span>100 000 ₸</span>
+    </div>
+
+    <div class="menu-card" data-price="90500">
+      <img src="https://avatars.mds.yandex.net/i?id=042d646b13ca4a839f743aeb9239512989cedc0f175a6769-5678271-images-thumbs&n=13">
+      <h3>Паста Карбонара</h3>
+      <span>90 500 ₸</span>
+    </div>
+
+    <div class="menu-card" data-price="67000">
+      <img src="https://avatars.mds.yandex.net/i?id=c858d2c89ab6e7ad89d26d62853506b03e902bc0-7011625-images-thumbs&n=13">
+      <h3>Салат Цезарь</h3>
+      <span>67 000 ₸</span>
+    </div>
+
+    <div class="menu-card" data-price="50500">
+      <img src="https://s0.rbk.ru/v6_top_pics/media/img/0/64/347393955965640.webp">
+      <h3>Тирамису</h3>
+      <span>50 500 ₸</span>
+    </div>
+
+    <div class="menu-card" data-price="10500">
+      <img src="https://avatars.mds.yandex.net/i?id=9e9526156c075c8add2d4969c7f31aea_l-13315315-images-thumbs&n=13">
+      <h3>Кофе</h3>
+      <span>10 500 ₸</span>
+    </div>
+
+    <div class="menu-card" data-price="60000">
+      <img src="https://images.pexels.com/photos/338713/pexels-photo-338713.jpeg">
+      <h3>Фреш сок</h3>
+      <span>60 000 ₸</span>
+    </div>
+
+  </div>
+
+</section>
+
+<footer>
+  © 2026 Luxury Hotel
+</footer>
+
+<!-- ⚙️ JS -->
+<script>
+const maxPriceInput = document.getElementById('maxPrice');
+const nameSearchInput = document.getElementById('nameSearch');
+
+const maxPriceValue = document.getElementById('maxPriceValue');
+const resetBtn = document.getElementById('resetFilters');
+
+const cards = document.querySelectorAll('.menu-card');
+
+function applyFilters() {
+  const maxPrice = +maxPriceInput.value;
+  const search = nameSearchInput.value.toLowerCase().trim();
+
+  maxPriceValue.textContent = `${maxPrice} ₸`;
+
+  cards.forEach(card => {
+    const price = +card.dataset.price;
+    const title = card.querySelector('h3').textContent.toLowerCase();
+
+    const matchPrice = price <= maxPrice;
+    const matchSearch = search === '' || title.includes(search);
+
+    card.style.display = (matchPrice && matchSearch) ? '' : 'none';
+  });
+}
+
+maxPriceInput.addEventListener('input', applyFilters);
+nameSearchInput.addEventListener('input', applyFilters);
+
+resetBtn.addEventListener('click', () => {
+  maxPriceInput.value = maxPriceInput.max;
+  nameSearchInput.value = '';
+  applyFilters();
+});
+
+applyFilters();
+</script>
+
+</body>
+</html>

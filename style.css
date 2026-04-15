@@ -1,0 +1,664 @@
+/* ===== ОСНОВА ===== */
+body {
+  margin: 0;
+
+}
+
+/* ===== HEADER ===== */
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  padding: 20px 0px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 1000;
+  background: rgba(0,0,0,0.4);
+}
+
+.logo {
+  color: white;
+  font-size: 20px;
+  margin-left: 40px;
+  margin-right: 20px;
+}
+
+header a {
+  color: white;
+  text-decoration: none;
+  margin-left: 25px;
+ 
+
+}
+
+/* ===== БАННЕР  */
+.hero {
+  height: 100vh;
+  background: url('https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg') center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  
+}
+
+.hero h1 {
+  font-size: 60px;
+  font-family: 'Playfair Display';
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+/* ===== КНОПКА ===== */
+button {
+  background: #c9a96e;
+  border: none;
+  padding: 15px 40px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* ===== БЛОКИ ===== */
+.section {
+  padding: 100px 60px;
+  text-align: center;
+}
+
+
+.rooms {
+  display: flex;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.room {
+  flex: 1;
+}
+
+.room img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+
+.room img:hover {
+  transform: translateY(-8px);
+}
+
+.room img {
+    background: white;
+    overflow: hidden;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: #2c1f14;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+
+/* ===== БАННЕР СТРАНИЦЫ ===== */
+.page-hero {
+  height: 60vh;
+  background: url('https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg') center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+.page-hero::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+}
+
+/* ===== СЕТКА НОМЕРОВ ===== */
+.rooms-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  padding: 0 60px;
+}
+
+/* ===== КАРТОЧКА ===== */
+.room-card {
+  background: white;
+  overflow: hidden;
+}
+
+.room-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.room-card-info {
+  padding: 20px;
+}
+
+.price {
+  display: block;
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+/* КНОПКА */
+.room-card button {
+  background: #c9a96e;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+
+
+
+
+/* ===== БАННЕР НОМЕРА ===== */
+.single-hero {
+  background: url('https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg') center/cover no-repeat;
+}
+
+/* ===== СТРАНИЦА НОМЕРА ===== */
+.room-single {
+  display: flex;
+  gap: 50px;
+  padding: 80px 60px;
+}
+
+/* ГАЛЕРЕЯ */
+.gallery {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* ИНФО */
+.room-info-block {
+  flex: 1;
+}
+
+.room-info-block h2 {
+  font-family: 'Playfair Display';
+  font-size: 32px;
+}
+
+/* СПИСОК */
+.features {
+  list-style: none;
+  padding: 0;
+}
+
+.features li {
+  margin: 10px 0;
+}
+
+/* ЦЕНА */
+.price-big {
+  font-size: 28px;
+  margin: 20px 0;
+  font-weight: bold;
+}
+
+/* КНОПКА */
+.room-info-block button {
+  background: #c9a96e;
+  border: none;
+  padding: 15px 30px;
+  cursor: pointer;
+}
+
+
+
+
+
+
+.page-hero3{
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  position: relative;
+  background: url('https://img.freepik.com/premium-photo/pool-with-view-city-skyline_1276913-62160.jpg?semt=ais_hybrid&w=740') center/cover no-repeat;
+}
+
+.header {
+    background: #000000;
+    color: white;
+    text-align: center;
+    padding: 0px;
+}
+
+.booking {
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+}
+
+.booking-form {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.booking-form label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.booking-form input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.booking-form button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    background: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.booking-form button:hover {
+    background: #333;
+}
+
+
+/* ===== УСЛУГИ (SERVICES PAGE) ===== */
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  padding: 0 60px;
+}
+
+.service-card {
+  background: white;
+  overflow: hidden;
+  text-align: center;
+  transition: 0.3s;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+}
+
+.service-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.service-card h3 {
+  margin-top: 15px;
+  font-size: 22px;
+  font-family: 'Playfair Display';
+}
+
+.service-card p {
+  font-size: 14px;
+  color: #555;
+  padding: 0 15px;
+  margin: 10px 0 20px;
+}
+
+.service-card button {
+  margin-bottom: 20px;
+}
+
+
+
+
+
+
+
+
+/* ===== HERO ===== */
+.page-herocont {
+  height: 60vh;
+  background: url('https://www.hilton.com/im/en/CLDTMGI/16710833/54-aam-9542-3-4-5-6.jpg?impolicy=crop&cw=5000&ch=2799&gravity=NorthWest&xposition=0&yposition=267&rw=768&rh=430') center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+.page-hero::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-content h1 {
+  font-size: 50px;
+  font-family: 'Playfair Display';
+}
+
+/* ===== SECTION ===== */
+.section {
+  padding: 100px 60px;
+  text-align: center;
+}
+
+/* ===== CONTACT GRID ===== */
+.contacts-grid {
+  display: flex;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.contact-card {
+  flex: 1;
+  background: white;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  padding-bottom: 20px;
+  transition: 0.3s;
+}
+
+.contact-card:hover {
+  transform: translateY(-8px);
+}
+
+.contact-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.contact-card h3 {
+  margin-top: 15px;
+  font-family: 'Playfair Display';
+}
+
+.contact-card p {
+  color: #555;
+}
+
+/* ===== FORM ===== */
+.contact-form {
+  max-width: 600px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 15px;
+  border: 1px solid #ccc;
+  font-family: inherit;
+}
+
+.contact-form button {
+  background: #c9a96e;
+  border: none;
+  padding: 15px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: #2c1f14;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+
+
+
+
+
+
+
+
+/* ===== HERO ===== */
+.page-herores {
+  height: 60vh;
+  background: url('https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg') center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+.page-hero::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-content h1 {
+  font-size: 50px;
+  font-family: 'Playfair Display';
+}
+
+/* ===== SECTION ===== */
+.section {
+  padding: 100px 60px;
+  text-align: center;
+}
+
+/* ===== MENU GRID ===== */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.menu-card {
+  background: white;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.menu-card:hover {
+  transform: translateY(-8px);
+}
+
+.menu-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.menu-card h3 {
+  margin: 15px 0 5px;
+  font-family: 'Playfair Display';
+}
+
+.menu-card p {
+  color: #555;
+  font-size: 14px;
+}
+
+.menu-card span {
+  display: block;
+  margin: 10px 0 20px;
+  font-weight: bold;
+  color: #c9a96e;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: #2c1f14;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+
+.standert-hero  {
+  background: url('https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg') center/cover no-repeat;
+}
+
+.prez-hero {
+   background: url('https://images.pexels.com/photos/189296/pexels-photo-189296.jpeg') center/cover no-repeat;
+}
+
+.sem-hero {
+   background: url('https://images.pexels.com/photos/271618/pexels-photo-271618.jpeg') center/cover no-repeat;
+}
+
+.room-link:hover {
+  transform: translateY(-8px);
+    transition: 0.3s;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.page-spa {
+  height: 60vh;
+  background: url('https://avatars.mds.yandex.net/i?id=030f32a9c97f8d84a8df24f2ffd35254fc2ef76f-12324541-images-thumbs&n=13') center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+.page-bassein {
+  height: 60vh;
+  background: url('https://avatars.mds.yandex.net/get-altay/5491685/2a0000017d1d3bb8fbb1ddcbae7cb98da674/XXL') center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+.page-fitnes {
+  height: 60vh;
+  background: url('https://static.tildacdn.com/tild3939-6239-4264-a232-373965343064/fit-klub-8.jpg') center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+  .page-zal {
+  height: 60vh;
+  background: url('https://sc04.alicdn.com/kf/H445c7ab1f72b42d1be896bdef56e15b3t/200366657/H445c7ab1f72b42d1be896bdef56e15b3t.jpg') center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+.page-trans {
+   height: 60vh;
+  background: url('https://avatars.mds.yandex.net/i?id=bc01f81b5b1e0793ccdca87b656c56e1_l-9068298-images-thumbs&n=13') center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+menu{
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Кнопка */
+/* КНОПКА */
+.menu-btn {
+    position: relative;
+    z-index: 1100;
+}
+
+/* ЗАТЕМНЕНИЕ */
+#overlay {
+    position: fixed;
+    z-index: 1090;
+}
+
+/* МЕНЮ */
+#sidebar {
+    position: fixed;
+    z-index: 1200;
+}
+
+/* ЧТОБЫ БАННЕР НЕ ЛЕЗ ВПЕРЕД */
+.page-hero {
+    position: relative;
+    z-index: 1;
+}

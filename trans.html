@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Фитнес | Luxury Hotel</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+/* 🔥 ФИЛЬТР */
+.filters-panel {
+  width: min(960px, 92%);
+  margin: 30px auto;
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 14px;
+  padding: 18px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  align-items: end;
+}
+
+.range-wrap {
+  display: grid;
+  gap: 6px;
+}
+
+.filters-panel input {
+  width: 100%;
+}
+
+.filters-panel button {
+  border: none;
+  border-radius: 10px;
+  background: #1d1d1d;
+  color: #fff;
+  padding: 10px;
+  cursor: pointer;
+}
+
+/* 🚗 карточки */
+.menu-card {
+  position: relative;
+}
+
+/* 🤍 кнопка */
+.add-booking-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 12px;
+  padding: 5px 8px;
+  border: 1px solid rgba(0,0,0,0.15);
+  background: rgba(255,255,255,0.7);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.add-booking-btn.active {
+  background: #1d1d1d;
+  color: #fff;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">Luxury Hotel</div>
+
+  <nav>
+     <a href="index.html">Главная</a>
+     <a href="rooms.html">Номера</a>
+     <a href="services.html">Услуги</a>
+     <a href="contacts.html">Контакты</a>
+     <a href="booking.html">Бронирование</a>
+  </nav>
+</header>
+
+<!-- БАННЕР -->
+<section class="page-trans">
+  <div class="hero-content">
+    <h1>Трансфер</h1>
+    <p>Комфортное и безопасное передвижение для гостей</p>
+  </div>
+</section>
+
+<!-- 🔥 ФИЛЬТР -->
+<div class="filters-panel">
+
+  <div class="range-wrap">
+    <label>Максимальная цена</label>
+    <input type="range" id="maxPrice" min="250000" max="2000000" step="50000" value="2000000">
+    <span id="maxPriceValue">2000000 ₸</span>
+  </div>
+
+  <div>
+    <label>Поиск</label>
+    <input type="text" id="nameSearch" placeholder="Например, VIP">
+  </div>
+
+  <div>
+    <button id="resetFilters">Сброс</button>
+  </div>
+
+</div>
+
+<!-- МЕНЮ -->
+<section class="section">
+  <h2>Основные услуги</h2>
+
+  <div class="menu-grid">
+
+    <div class="menu-card" data-price="600000">
+      <img src="https://avatars.mds.yandex.net/i?id=7515e62c770b5d12153ac07eba186185_l-5669136-images-thumbs&ref=rim&n=13&w=3000&h=2000">
+      <button class="add-booking-btn" data-name="Аэропорт трансфер" data-price="600000">+</button>
+      <h3>Трансфер из/в аэропорт</h3>
+      <span>600 000 ₸</span>
+    </div>
+
+    <div class="menu-card" data-price="250000">
+      <img src="https://avatars.mds.yandex.net/i?id=88784dd0611b1c92e9a3fdefed6d8f03b130983b-8410613-images-thumbs&n=13">
+      <button class="add-booking-btn" data-name="Город трансфер" data-price="250000">+</button>
+      <h3>Трансфер по городу</h3>
+      <span>250 000 ₸</span>
+    </div>
+
+    <div class="menu-card" data-price="700000">
+      <img src="https://avatars.mds.yandex.net/i?id=11a63d302961a32f3009ca7000ca61b0_l-10898378-images-thumbs&n=13">
+      <button class="add-booking-btn" data-name="Минивэн" data-price="700000">+</button>
+      <h3>Минивэн</h3>
+      <span>700 000 ₸</span>
+    </div>
+
+    <div class="menu-card" data-price="300000">
+      <img src="https://avatars.mds.yandex.net/i?id=1aa13861a1a310e2c180f07f0c46442a00cedfb8-8496994-images-thumbs&n=13">
+      <button class="add-booking-btn" data-name="Детское кресло" data-price="300000">+</button>
+      <h3>Детское кресло</h3>
+      <span>300 000 ₸</span>
+    </div>
+
+    <div class="menu-card" data-price="500000">
+      <img src="https://cs14.pikabu.ru/post_img/2023/09/09/3/og_og_1694229044235620930.jpg">
+      <button class="add-booking-btn" data-name="Ожидание" data-price="500000">+</button>
+      <h3>Ожидание в аэропорту</h3>
+      <span>500 000 ₸</span>
+    </div>
+
+    <div class="menu-card" data-price="2000000">
+      <img src="https://avatars.mds.yandex.net/i?id=7583e9395b142b36c8aa2cca4c837320_l-9151245-images-thumbs&n=13">
+      <button class="add-booking-btn" data-name="VIP трансфер" data-price="2000000">+</button>
+      <h3>VIP-трансфер</h3>
+      <span>2 000 000 ₸</span>
+    </div>
+
+  </div>
+
+</section>
+
+<footer>
+  © 2026 Luxury Hotel
+</footer>
+
+<script>
+const maxPriceInput = document.getElementById('maxPrice');
+const nameSearchInput = document.getElementById('nameSearch');
+const maxPriceValue = document.getElementById('maxPriceValue');
+const resetBtn = document.getElementById('resetFilters');
+
+const cards = document.querySelectorAll('.menu-card');
+
+/* 🔥 ФИЛЬТР */
+function applyFilters() {
+  const maxPrice = +maxPriceInput.value;
+  const search = nameSearchInput.value.toLowerCase();
+
+  maxPriceValue.textContent = maxPrice + ' ₸';
+
+  cards.forEach(card => {
+    const price = +card.dataset.price;
+    const title = card.querySelector('h3').textContent.toLowerCase();
+
+    const ok = price <= maxPrice && (search === '' || title.includes(search));
+
+    card.style.display = ok ? '' : 'none';
+  });
+}
+
+maxPriceInput.addEventListener('input', applyFilters);
+nameSearchInput.addEventListener('input', applyFilters);
+
+resetBtn.addEventListener('click', () => {
+  maxPriceInput.value = maxPriceInput.max;
+  nameSearchInput.value = '';
+  applyFilters();
+});
+
+/* 🛒 БРОНЬ */
+const buttons = document.querySelectorAll('.add-booking-btn');
+
+function getCart() {
+  return JSON.parse(localStorage.getItem('bookingCart')) || [];
+}
+
+function saveCart(cart) {
+  localStorage.setItem('bookingCart', JSON.stringify(cart));
+}
+
+function update(btn, active) {
+  btn.textContent = active ? "✓" : "+";
+  btn.classList.toggle("active", active);
+}
+
+buttons.forEach(btn => {
+  const item = {
+    name: btn.dataset.name,
+    price: btn.dataset.price
+  };
+
+  let cart = getCart();
+  update(btn, cart.some(i => i.name === item.name));
+
+  btn.addEventListener('click', () => {
+    let cart = getCart();
+
+    const index = cart.findIndex(i => i.name === item.name);
+
+    if (index === -1) {
+      cart.push(item);
+      update(btn, true);
+    } else {
+      cart.splice(index, 1);
+      update(btn, false);
+    }
+
+    saveCart(cart);
+  });
+});
+
+applyFilters();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Бронирование</title>
+
+<link rel="stylesheet" href="booking.css">
+<link rel="stylesheet" href="style.css">
+
+<style>
+.booking-list {
+  width: min(900px, 92%);
+  margin: 30px auto;
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.booking-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.booking-item:last-child {
+  border-bottom: none;
+}
+
+.empty {
+  text-align: center;
+  color: #888;
+}
+
+.total-box {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 2px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.popup-content button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border: none;
+  background: #1d1d1d;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">Luxury Hotel</div>
+
+  <nav>
+     <a href="index.html">Главная</a>
+     <a href="rooms.html">Номера</a>
+     <a href="services.html">Услуги</a>
+     <a href="contacts.html">Контакты</a>
+  </nav>
+</header>
+
+<section class="booking">
+  <form class="booking-form">
+
+    <label>Имя</label>
+    <input type="text" required>
+
+    <label>Телефон</label>
+    <input type="tel" required>
+
+    <label>Почта</label>
+    <input type="email" required>
+
+    <label>Дата заезда</label>
+    <input type="date" required>
+
+    <label>Дата выезда</label>
+    <input type="date" required>
+    <label>Количество гостей</label>
+    <input type="number" min="1" max="10" value="1">
+
+    <button type="submit">Забронировать</button>
+
+  </form>
+</section>
+
+<section class="booking-list">
+  <h2>Ваши выбранные услуги</h2>
+
+  <div id="bookingItems"></div>
+
+  <div class="total-box">
+    <span>Итого:</span>
+    <span id="totalPrice">0 ₸</span>
+  </div>
+</section>
+
+<footer>
+  © 2026 Luxury Hotel
+</footer>
+
+<div id="successPopup" class="popup">
+  <div class="popup-content">
+    <h2>✅ Бронирование успешно!</h2>
+    <p>Спасибо за ваш заказ</p>
+    <button onclick="closePopup()">Закрыть</button>
+  </div>
+</div>
+
+<script>
+function getCart() {
+  return JSON.parse(localStorage.getItem('bookingCart')) || [];
+}
+
+function renderBooking() {
+  const container = document.getElementById('bookingItems');
+  const totalBox = document.getElementById('totalPrice');
+
+  const cart = getCart();
+  container.innerHTML = "";
+
+  if (cart.length === 0) {
+    container.innerHTML = `<p class="empty">Вы ничего не выбрали</p>`;
+    totalBox.textContent = "0 ₸";
+    return;
+  }
+
+  let total = 0;
+
+  cart.forEach((item, index) => {
+    const price = Number(item.price);
+    total += price;
+
+    const div = document.createElement('div');
+    div.classList.add('booking-item');
+    div.style.flexDirection = "column";
+
+    div.innerHTML = `
+      <div style="display:flex; justify-content:space-between;">
+        <span>${item.name}</span>
+        <strong>${price.toLocaleString()} ₸</strong>
+      </div>
+
+      <div style="margin-top:6px; display:flex; gap:10px;">
+        <input type="date" data-index="${index}" value="${item.date || ''}">
+        <input type="time" data-index="${index}" value="${item.time || ''}">
+      </div>
+
+      <div style="font-size:13px; color:#888; margin-top:4px;">
+        ${item.date ? "📅 " + item.date : ""} 
+        ${item.time ? "⏰ " + item.time : ""}
+      </div>
+    `;
+
+    container.appendChild(div);
+  });
+
+  totalBox.textContent = total.toLocaleString() + " ₸";
+
+  document.querySelectorAll('input[type="date"]').forEach(input => {
+    input.addEventListener('change', function() {
+      const index = this.dataset.index;
+      let cart = getCart();
+      cart[index].date = this.value;
+      localStorage.setItem('bookingCart', JSON.stringify(cart));
+    });
+  });
+
+  document.querySelectorAll('input[type="time"]').forEach(input => {
+    input.addEventListener('change', function() {
+      const index = this.dataset.index;
+      let cart = getCart();
+      cart[index].time = this.value;
+      localStorage.setItem('bookingCart', JSON.stringify(cart));
+    });
+  });
+}
+
+const form = document.querySelector('.booking-form');
+
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const cart = getCart();
+
+  if (cart.length === 0) {
+    alert("Добавьте услуги перед бронированием");
+    return;
+  }
+
+  document.getElementById('successPopup').style.display = 'flex';
+
+  localStorage.removeItem('bookingCart');
+  renderBooking();
+  form.reset();
+});
+
+function closePopup() {
+  document.getElementById('successPopup').style.display = 'none';
+}
+
+renderBooking();
+</script>
+
+</body>
+</html>

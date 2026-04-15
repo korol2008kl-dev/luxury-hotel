@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Фитнес | Luxury Hotel</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+/* 🔥 ФИЛЬТР */
+.filters-panel {
+  width: min(960px, 92%);
+  margin: 30px auto;
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 14px;
+  padding: 18px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  align-items: end;
+}
+
+.range-wrap {
+  display: grid;
+  gap: 6px;
+}
+
+.range-value {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.filters-panel input {
+  width: 100%;
+}
+
+.filters-panel button {
+  border: none;
+  border-radius: 10px;
+  background: #1d1d1d;
+  color: #fff;
+  padding: 10px 14px;
+  cursor: pointer;
+  height: 41px;
+}
+
+/* 🏋️ Карточки */
+.menu-card {
+  position: relative;
+}
+
+/* 🤍 КНОПКА */
+.add-booking-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 12px;
+  padding: 5px 8px;
+  border: 1px solid rgba(0,0,0,0.15);
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(6px);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.add-booking-btn.active {
+  background: #1d1d1d;
+  color: #fff;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">Luxury Hotel</div>
+
+  <nav>
+     <a href="index.html">Главная</a>
+     <a href="rooms.html">Номера</a>
+     <a href="services.html">Услуги</a>
+     <a href="contacts.html">Контакты</a>
+     <a href="booking.html">Бронирование</a>
+  </nav>
+</header>
+
+<section class="page-fitnes">
+  <div class="hero-content">
+    <h1>Фитнес-зал</h1>
+    <p>Современное пространство для тренировок</p>
+  </div>
+</section>
+
+<!-- 🔥 ФИЛЬТР -->
+<div class="filters-panel">
+
+  <div class="range-wrap">
+    <label>Максимальная цена</label>
+    <input type="range" id="maxPrice" min="12000" max="90000" step="1000" value="90000">
+    <span id="maxPriceValue">90000 ₸</span>
+  </div>
+
+  <div>
+    <label>Поиск</label>
+    <input type="text" id="nameSearch" placeholder="Например, йога">
+  </div>
+
+  <div>
+    <button id="resetFilters">Сброс</button>
+  </div>
+
+</div>
+
+<section class="section">
+  <h2>Тренажёрный зал</h2>
+
+  <div class="menu-grid">
+
+    <div class="menu-card" data-price="25000">
+      <img src="https://img.freepik.com/premium-photo/luxury-gym-training-room-light-view_752325-34263.jpg">
+      <button class="add-booking-btn" data-name="Тренажёрный зал" data-price="25000">+</button>
+      <h3>Посещение тренажёрного зала</h3>
+      <span>25 000 ₸</span>
+    </div>
+
+    <div class="menu-card" data-price="25000">
+      <img src="https://avatars.mds.yandex.net/i?id=3968acec0f884718e1b9411222ba7bd53ac8afcc-12421170-images-thumbs&n=13">
+      <button class="add-booking-btn" data-name="Тренер" data-price="25000">+</button>
+      <h3>Индивидуальная тренировка</h3>
+      <span>25 000 ₸</span>
+    </div>
+
+    <div class="menu-card" data-price="50000">
+      <img src="https://avatars.mds.yandex.net/get-altay/14333651/2a00000195a3c4252ff549b3c94eca8686c7/orig">
+      <button class="add-booking-btn" data-name="Пакет тренировок" data-price="50000">+</button>
+      <h3>Пакет тренировок</h3>
+      <span>50 000 ₸</span>
+    </div>
+
+    <div class="menu-card" data-price="12000">
+      <img src="https://avatars.mds.yandex.net/i?id=6521f932447e30aeb49e56b25b09ecef_l-4232390-images-thumbs&n=13">
+      <button class="add-booking-btn" data-name="Йога" data-price="12000">+</button>
+      <h3>Йога</h3>
+      <span>12 000 ₸</span>
+    </div>
+
+    <div class="menu-card" data-price="90000">
+      <img src="https://i.pinimg.com/originals/f9/6d/7e/f96d7ef2011c1fd55316f8d1979fd5ae.jpg">
+      <button class="add-booking-btn" data-name="Премиум пакет" data-price="90000">+</button>
+      <h3>Премиум-пакет</h3>
+      <span>90 000 ₸</span>
+    </div>
+
+    <div class="menu-card" data-price="45000">
+      <img src="https://img.freepik.com/free-photo/full-shot-women-doing-pilates-together_23-2150830159.jpg">
+      <button class="add-booking-btn" data-name="Пилатес" data-price="45000">+</button>
+      <h3>Пилатес</h3>
+      <span>45 000 ₸</span>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  © 2026 Luxury Hotel
+</footer>
+
+<script>
+const maxPriceInput = document.getElementById('maxPrice');
+const nameSearchInput = document.getElementById('nameSearch');
+const maxPriceValue = document.getElementById('maxPriceValue');
+const resetBtn = document.getElementById('resetFilters');
+
+const cards = document.querySelectorAll('.menu-card');
+
+/* 🔥 ФИЛЬТР */
+function applyFilters() {
+  const maxPrice = +maxPriceInput.value;
+  const search = nameSearchInput.value.toLowerCase();
+
+  maxPriceValue.textContent = maxPrice + ' ₸';
+
+  cards.forEach(card => {
+    const price = +card.dataset.price;
+    const title = card.querySelector('h3').textContent.toLowerCase();
+
+    const ok = price <= maxPrice && (search === '' || title.includes(search));
+
+    card.style.display = ok ? '' : 'none';
+  });
+}
+
+maxPriceInput.addEventListener('input', applyFilters);
+nameSearchInput.addEventListener('input', applyFilters);
+
+resetBtn.addEventListener('click', () => {
+  maxPriceInput.value = maxPriceInput.max;
+  nameSearchInput.value = '';
+  applyFilters();
+});
+
+/* 🛒 БРОНЬ */
+const buttons = document.querySelectorAll('.add-booking-btn');
+
+function getCart() {
+  return JSON.parse(localStorage.getItem('bookingCart')) || [];
+}
+
+function saveCart(cart) {
+  localStorage.setItem('bookingCart', JSON.stringify(cart));
+}
+
+function update(btn, active) {
+  btn.textContent = active ? "✓" : "+";
+  btn.classList.toggle("active", active);
+}
+
+buttons.forEach(btn => {
+  const item = {
+    name: btn.dataset.name,
+    price: btn.dataset.price
+  };
+
+  let cart = getCart();
+  update(btn, cart.some(i => i.name === item.name));
+
+  btn.addEventListener('click', () => {
+    let cart = getCart();
+
+    const index = cart.findIndex(i => i.name === item.name);
+
+    if (index === -1) {
+      cart.push(item);
+      update(btn, true);
+    } else {
+      cart.splice(index, 1);
+      update(btn, false);
+    }
+
+    saveCart(cart);
+  });
+});
+
+applyFilters();
+</script>
+
+</body>
+</html>

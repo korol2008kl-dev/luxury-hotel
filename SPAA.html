@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Спа массаж | Luxury Hotel</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+/* 🔥 ФИЛЬТР */
+.filters-panel {
+  width: min(960px, 92%);
+  margin: 30px auto;
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 14px;
+  padding: 18px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  align-items: end;
+}
+
+.range-wrap {
+  display: grid;
+  gap: 6px;
+}
+
+.range-value {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.filters-panel input[type="text"],
+.filters-panel input[type="range"] {
+  width: 100%;
+}
+
+.filters-panel button {
+  border: none;
+  border-radius: 10px;
+  background: #1d1d1d;
+  color: #fff;
+  padding: 10px 14px;
+  cursor: pointer;
+  height: 41px;
+}
+
+/* 🏊 Карточки */
+.menu-card {
+  position: relative;
+}
+
+/* 🤍 КНОПКА БРОНИ */
+.add-booking-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 12px;
+  padding: 5px 8px;
+  border: 1px solid rgba(0,0,0,0.15);
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(6px);
+  border-radius: 8px;
+  cursor: pointer;
+  color: #1d1d1d;
+  transition: 0.2s ease;
+}
+
+.add-booking-btn:hover {
+  background: rgba(0,0,0,0.05);
+}
+
+.add-booking-btn.active {
+  background: #1d1d1d;
+  color: #fff;
+  border-color: #1d1d1d;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">Luxury Hotel</div>
+  <nav>
+     <a href="index.html">Главная</a>
+     <a href="rooms.html">Номера</a>
+     <a href="services.html">Услуги</a>
+     <a href="contacts.html">Контакты</a>
+     <a href="booking.html">Бронирование</a>
+  </nav>
+</header>
+
+<section class="page-spa">
+  <div class="hero-content">
+    <h1>Спа и массаж</h1>
+    <p>Погрузитесь в атмосферу расслабления и восстановления.</p>
+  </div>
+</section>
+
+<!-- 🔥 ФИЛЬТР -->
+<div class="filters-panel">
+
+  <div class="range-wrap">
+    <label for="maxPrice">Максимальная цена</label>
+    <input type="range" id="maxPrice" min="15500" max="24700" step="100" value="24700">
+    <span id="maxPriceValue" class="range-value">24700 ₸</span>
+  </div>
+
+  <div class="range-wrap">
+    <label for="maxTime">Максимальное время (мин)</label>
+    <input type="range" id="maxTime" min="30" max="80" step="5" value="80">
+    <span id="maxTimeValue" class="range-value">80 минут</span>
+  </div>
+
+  <div>
+    <label for="nameSearch">Поиск по названию</label>
+    <input type="text" id="nameSearch" placeholder="Например, расслабляющий">
+  </div>
+
+  <div>
+    <button type="button" id="resetFilters">Сбросить</button>
+  </div>
+
+</div>
+
+<!-- 💆 МАССАЖИ -->
+<section class="section">
+  <h2>Массажи</h2>
+
+  <div class="menu-grid">
+
+    <div class="menu-card" data-price="15500" data-time="30">
+      <img src="https://avatars.mds.yandex.net/i?id=57478647522206627a35d3777725960568a9fd0f-5210011-images-thumbs&n=13">
+      <button class="add-booking-btn" data-name="Классический массаж" data-price="15500">+</button>
+      <h3>Классический массаж</h3>
+      <p>Снимает напряжение</p>
+      <span>15 500 ₸ - 30 минут</span>
+    </div>
+
+    <div class="menu-card" data-price="16000" data-time="45">
+      <img src="https://avatars.mds.yandex.net/i?id=31f41059c6549153b257fd57c605f61ea3140a81-5341960-images-thumbs&n=13">
+      <button class="add-booking-btn" data-name="Расслабляющий массаж" data-price="16000">+</button>
+      <h3>Расслабляющий массаж</h3>
+      <span>16 000 ₸ - 45 минут</span>
+    </div>
+
+    <div class="menu-card" data-price="16800" data-time="45">
+      <img src="https://avatars.mds.yandex.net/i?id=b75b309a0f30dc5577fcc19b1bacab97_l-5231332-images-thumbs&n=13">
+      <button class="add-booking-btn" data-name="Тайский массаж" data-price="16800">+</button>
+      <h3>Тайский массаж</h3>
+      <span>16 800 ₸ - 45 минут</span>
+    </div>
+
+    <div class="menu-card" data-price="20000" data-time="30">
+      <img src="https://cdn.7days.ru/pic/aef/1014773/1680689/86.jpg">
+      <button class="add-booking-btn" data-name="Спортивный массаж" data-price="20000">+</button>
+      <h3>Спортивный массаж</h3>
+      <span>20 000 ₸ - 30 минут</span>
+    </div>
+
+    <div class="menu-card" data-price="24700" data-time="80">
+      <img src="https://avatars.mds.yandex.net/i?id=83e74e738fe1380d24529e485300674d8895a540-5501617-images-thumbs&n=13">
+      <button class="add-booking-btn" data-name="Аромамассаж" data-price="24700">+</button>
+      <h3>Аромамассаж</h3>
+      <span>24 700 ₸ - 80 минут</span>
+    </div>
+
+    <div class="menu-card" data-price="21000" data-time="50">
+      <img src="https://avatars.mds.yandex.net/i?id=cc936fa731cd1523ee970224ede79147_l-9181172-images-thumbs&n=13">
+      <button class="add-booking-btn" data-name="Горячие камни" data-price="21000">+</button>
+      <h3>Горячие камни</h3>
+      <span>21 000 ₸ - 50 минут</span>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  © 2026 Luxury Hotel
+</footer>
+
+<script>
+const maxPriceInput = document.getElementById('maxPrice');
+const maxTimeInput = document.getElementById('maxTime');
+const nameSearchInput = document.getElementById('nameSearch');
+
+const maxPriceValue = document.getElementById('maxPriceValue');
+const maxTimeValue = document.getElementById('maxTimeValue');
+
+const resetBtn = document.getElementById('resetFilters');
+const cards = document.querySelectorAll('.menu-card');
+
+/* 🔥 ФИЛЬТР */
+function applyFilters() {
+  const maxPrice = +maxPriceInput.value;
+  const maxTime = +maxTimeInput.value;
+  const search = nameSearchInput.value.toLowerCase().trim();
+
+  maxPriceValue.textContent = `${maxPrice} ₸`;
+  maxTimeValue.textContent = `${maxTime} минут`;
+
+  cards.forEach(card => {
+    const price = +card.dataset.price;
+    const time = +card.dataset.time;
+    const title = card.querySelector('h3').textContent.toLowerCase();
+
+    const matchPrice = price <= maxPrice;
+    const matchTime = time <= maxTime;
+    const matchSearch = search === '' || title.includes(search);
+
+    card.style.display = (matchPrice && matchTime && matchSearch) ? '' : 'none';
+  });
+}
+
+maxPriceInput.addEventListener('input', applyFilters);
+maxTimeInput.addEventListener('input', applyFilters);
+nameSearchInput.addEventListener('input', applyFilters);
+
+resetBtn.addEventListener('click', () => {
+  maxPriceInput.value = maxPriceInput.max;
+  maxTimeInput.value = maxTimeInput.max;
+  nameSearchInput.value = '';
+  applyFilters();
+});
+
+/* 🛒 БРОНИРОВАНИЕ */
+const buttons = document.querySelectorAll('.add-booking-btn');
+
+function getCart() {
+  return JSON.parse(localStorage.getItem('bookingCart')) || [];
+}
+
+function saveCart(cart) {
+  localStorage.setItem('bookingCart', JSON.stringify(cart));
+}
+
+function update(btn, active) {
+  btn.textContent = active ? "✓" : "+";
+  btn.classList.toggle("active", active);
+}
+
+buttons.forEach(btn => {
+  const item = {
+    name: btn.dataset.name,
+    price: btn.dataset.price
+  };
+
+  let cart = getCart();
+  update(btn, cart.some(i => i.name === item.name));
+
+  btn.addEventListener('click', () => {
+    let cart = getCart();
+
+    const index = cart.findIndex(i => i.name === item.name);
+
+    if (index === -1) {
+      cart.push(item);
+      update(btn, true);
+    } else {
+      cart.splice(index, 1);
+      update(btn, false);
+    }
+
+    saveCart(cart);
+  });
+});
+
+applyFilters();
+</script>
+
+</body>
+</html>
